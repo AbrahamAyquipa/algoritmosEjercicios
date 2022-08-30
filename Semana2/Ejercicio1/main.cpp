@@ -60,9 +60,9 @@ int main() {
 			cout << "\t\tMODIFICAR CONTACTO\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (!(posicion > 0 != posicion <= objArrEclipse->getNumeroEclipses()));
+			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
 
-			objEclipse = objArrEclipse->getEclipses(posicion);
+			objEclipse = objArrEclipse->getEclipeSegunPosicion(posicion);
 			cout << "\t\tREGISTRO DE DATOS\n\n";
 			cout << "\tTipo de eclipse (solar o lunar): "; cin >> tipo;
 			cout << "\tFecha (mes): "; cin >> fecha;
@@ -85,7 +85,7 @@ int main() {
 			cout << "\t\tELIMINAR ECLIPSES\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (!(posicion > 0 != posicion <= objArrEclipse->getNumeroEclipses()));
+			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
 
 			objArrEclipse->eliminarPlato(posicion);
 
