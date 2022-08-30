@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "arrContactos.h"
+#include "contactList.h"
 #include <iostream>
 using namespace std;
 
@@ -76,7 +76,7 @@ int main() {
 			cout << "\t\tEliminar un contacto\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 || posicion >= objArrContactos->getNumeroContactos());
+			} while (posicion < 0 && posicion <= objArrContactos->getNumeroContactos());
 
 			objArrContactos->eliminarContacto(posicion);
 
@@ -88,9 +88,9 @@ int main() {
 
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 || posicion >= objArrContactos->getNumeroContactos());
+			} while (posicion < 0 && posicion <= objArrContactos->getNumeroContactos());
 
-			objContacto = objArrContactos->getContactos(posicion);
+			objContacto = objArrContactos->getEclipeSegunPosicion(posicion);
 
 			cout << "\t\tAgregar nuevo contacto\n\n";
 			cout << "\tNombre: "; cin >> nombre;
