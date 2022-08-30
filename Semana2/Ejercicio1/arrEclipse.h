@@ -76,7 +76,7 @@ public:
 		}
 	}
 
-	eclipse* getEclipses(int posicion) {
+	eclipse* getEclipeSegunPosicion(int posicion) {
 		return this->arreglo_eclipse[posicion];
 	}
 
