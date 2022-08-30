@@ -1,5 +1,5 @@
 #pragma once
-#include "contacto.h"
+#include "contact.h"
 #include <iostream>
 using namespace std;
 
@@ -91,7 +91,7 @@ public:
 		}
 	}
 
-	contacto* getContactos(int posicion) {
+	contacto* getEclipeSegunPosicion(int posicion) {
 		return this->arreglo_contactos[posicion];
 	}
 
