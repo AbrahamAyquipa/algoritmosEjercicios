@@ -1,52 +1,40 @@
 #include "pch.h"
-#include "contactList.h"
-#include <iostream>
+#include "arrEclipse.h"
 using namespace std;
 
 int menu() {
 	int opcion;
 	do {
-		cout << "\t\tMenu:\n";
-		cout << "\t1. Agregar contacto\n";
-		cout << "\t2. Eliminar contacto\n";
-		cout << "\t3. Modificar contacto\n";
-		cout << "\t4. Lista de mis contactos\n";
-		cout << "\t5. Salir\n\n";
-		cout << "\tOpcion: "; cin >> opcion;
-	} while (!(opcion > 0 && opcion < 6));
-	return opcion;
-}
-
-int subMenuListaContactos() {
-	int opcion;
-	do {
-		cout << "\t1. Todos los contactos\n";
-		cout << "\t2. Solo varones\n";
-		cout << "\t3. Los que cumplen anios en mayo\n";
-		cout << "\t4. Quienes tienen Facebook y WhatsApp\n\n";
-		cout << "\topcion: "; cin >> opcion;
-	} while (!(opcion > 0 && opcion < 5));
+		cout << "\t\tMENU PRINCIPAL\n";
+		cout << "\t1. Registro de datos\n";
+		cout << "\t2. Modificar un dato\n";
+		cout << "\t3. Eliminar un dato\n";
+		cout << "\t4. Reporte de eclipses vistos en Europa\n";
+		cout << "\t5. Reporte de eclipses que ocasionar sismos\n";
+		cout << "\t6. Reporte de eclipses que se produjeron en la noche\n";
+		cout << "\t7. Sali\n";
+		cout << "\tIngresar opcion: "; cin >> opcion;
+	} while (!(opcion  > 0 && opcion < 8));
 	return opcion;
 }
 
 int main() {
 	int posicion;
 
-	string nombre;
-	int numero_telefono;
-	char sexo;
-	string facultad;
-	string fecha_nacimiento;
-	string email;
-	string red_social;
+	string tipo;
+	string fecha;
+	int hora;
+	bool sismos;
+	bool lluvias;
+	string visibilidad;
 
-	contacto* objContacto = nullptr;
-	arrContactos* objArrContactos = new arrContactos();
+	eclipse* objEclipse = nullptr;
+	arrEclipse* objArrEclipse = new arrEclipse();
 
 	while (true) {
 		system("cls");
 		int opcion = menu();
-		if (opcion == 5) {
+		if (opcion == 7) {
 			system("cls");
 			break;
 		}
@@ -54,81 +42,71 @@ int main() {
 
 		switch (opcion) {
 		case 1:
-			cout << "\t\tAgregar nuevo contacto\n\n";
-			cout << "\tNombre: "; cin >> nombre;
-			cout << "\tNumero de telefono: "; cin >> numero_telefono;
-			do {
-				cout << "\tSexo (F: femenino, M: masculino): "; cin >> sexo;
-				sexo = toupper(sexo);
-			} while (!(sexo == 'M' || sexo == 'F'));
-			cout << "\tFacultad: "; cin >> facultad;
-			cout << "\tFecha de nacimiento: "; cin >> fecha_nacimiento;
-			cout << "\tEmail: "; cin >> email;
-			cout << "\tSocial Network: "; cin >> red_social;
+			cout << "\t\tREGISTRO DE DATOS\n\n";
+			cout << "\tTipo de eclipse (solar o lunar): "; cin >> tipo;
+			cout << "\tFecha (mes): "; cin >> fecha;
+			cout << "\tHora (ej:100 = 1 am.): "; cin >> hora;
+			cout << "\tSismos (1: si, 0: no): "; cin >> sismos;
+			cout << "\tLluvias (1: si, 0: no): "; cin >> lluvias;
+			cout << "\tVisibilidad (America del Sur, Europa, Africa, America del Norte, Asia): "; cin >> visibilidad;
+			
+			objArrEclipse->agregarEclipse(new eclipse(tipo, fecha, hora, sismos, lluvias, visibilidad));
 
-			objArrContactos->agregarContacto(new contacto(nombre, numero_telefono, sexo, facultad, fecha_nacimiento, email, red_social));
-
-			cout << "\n\tRegistro exitoso...";
+			cout << "\t\tRegistro exitoso...";
 			break;
-		case 2:
-			if (objArrContactos->getNumeroContactos() == 0) break;
+		case 2 :
+			if (objArrEclipse->getNumeroEclipses() == 0) break;
 
-			cout << "\t\tEliminar un contacto\n\n";
+			cout << "\t\tMODIFICAR CONTACTO\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 && posicion <= objArrContactos->getNumeroContactos());
+			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
 
-			objArrContactos->eliminarContacto(posicion);
-
-			cout << "\n\tContacto eliminado correctamente...";
+			objEclipse = objArrEclipse->getEclipeSegunPosicion(posicion);
+			cout << "\t\tREGISTRO DE DATOS\n\n";
+			cout << "\tTipo de eclipse (solar o lunar): "; cin >> tipo;
+			cout << "\tFecha (mes): "; cin >> fecha;
+			cout << "\tHora (ej:100 = 1 am.): "; cin >> hora;
+			cout << "\tSismos (1: si, 0: no): "; cin >> sismos;
+			cout << "\tLluvias (1: si, 0: no): "; cin >> lluvias;
+			cout << "\tVisibilidad (America del Sur, Europa, Africa, America del Norte, Asia): "; cin >> visibilidad;
+		
+			objEclipse->setTipo(tipo);
+			objEclipse->setFecha(fecha);
+			objEclipse->setHora(hora);
+			objEclipse->setSismos(sismos);
+			objEclipse->setLluvias(lluvias);
+			objEclipse->setVisibilidad(visibilidad);
+			objEclipse = nullptr;
 			break;
 		case 3:
-			if (objArrContactos->getNumeroContactos() == 0) break;
-			cout << "\t\tModificar contacto\n\n";
+			if (objArrEclipse->getNumeroEclipses() == 0) break;
 
+			cout << "\t\tELIMINAR ECLIPSES\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 && posicion <= objArrContactos->getNumeroContactos());
+			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
 
-			objContacto = objArrContactos->getEclipeSegunPosicion(posicion);
+			objArrEclipse->eliminarPlato(posicion);
 
-			cout << "\t\tAgregar nuevo contacto\n\n";
-			cout << "\tNombre: "; cin >> nombre;
-			cout << "\tNumero de telefono: "; cin >> numero_telefono;
-			do {
-				cout << "\tSexo (F: femenino, M: masculino): "; cin >> sexo;
-				sexo = toupper(sexo);
-			} while (!(sexo == 'M' || sexo == 'F'));
-			cout << "\tFacultad: "; cin >> facultad;
-			cout << "\tFecha de nacimiento: "; cin >> fecha_nacimiento;
-			cout << "\tEmail: "; cin >> email;
-			cout << "\tSocial Network: "; cin >> red_social;
-
-			objContacto->setNombre(nombre);
-			objContacto->setNumeroTelefono(numero_telefono);
-			objContacto->setSexo(sexo);
-			objContacto->setFacultad(facultad);
-			objContacto->setFechaNacimiento(fecha_nacimiento);
-			objContacto->setEmail(email);
-			objContacto->setRedSocial(red_social);
-			objContacto = nullptr;
-
-			cout << "\n\tRegistro exitoso...";
+			cout << "\t\tContacto eliminado correctamente...";
 			break;
 		case 4:
-			cout << "\t\tLista de contactos\n\n";
-			int opcion = subMenuListaContactos();
-			switch (opcion) {
-			case 1: objArrContactos->listaContactos(); break;
-			case 2: objArrContactos->listaContactosVarones(); break;
-			case 3: objArrContactos->listaContactosCumpleañosMayo(); break;
-			case 4: objArrContactos->listaContactosQueTienenFbYWhtsp();
-			}
+			cout << "\tREPORTE DE ECLIPSES VISTOS EN EUROPA\n";
+			objArrEclipse->reporteEclipsesEuropa();
+			break;
+		case 5:
+			cout << "\tREPORTE DE ECLIPSES QUE OCASIONAR SISMOS\n";
+			objArrEclipse->reporteEclipsesQueCausaronSismos();
+			break;
+		case 6:
+			cout << "\tREPORTE DE ECLIPSES QUE SE PRODUJERON EN LA NOCHE\n";
+			objArrEclipse->reporteEclipsesNoche();
 			break;
 		}
 		system("pause>0");
 	}
-	delete objArrContactos;
+	delete objArrEclipse;
 	system("pause>0");
 	return 0;
 }
