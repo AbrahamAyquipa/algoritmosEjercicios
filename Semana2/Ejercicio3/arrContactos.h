@@ -91,7 +91,7 @@ public:
 		}
 	}
 
-	contacto* getEclipeSegunPosicion(int posicion) {
+	contacto* getContactoSegunPosicion(int posicion) {
 		return this->arreglo_contactos[posicion];
 	}
 
