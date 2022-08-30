@@ -71,7 +71,7 @@ public:
 	void reporteEclipsesNoche() {
 		for (int i = 0; i < numero_eclipses; i++) {
 			if (arreglo_eclipse[i]->getSismos() == true)
-				cout << "\tPosicion: " << i << " -> ";
+			cout << "\tPosicion: " << i << " -> ";
 			this->arreglo_eclipse[i]->toString();
 		}
 	}
