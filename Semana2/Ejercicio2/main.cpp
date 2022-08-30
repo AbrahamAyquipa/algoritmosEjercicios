@@ -61,9 +61,9 @@ int main() {
 			cout << "\t\tModificar plato\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 || posicion >= objArrPlato->getNumeroPlatos());
+			} while (posicion < 0 && posicion <= objArrPlato->getNumeroPlatos());
 
-			objPlato = objArrPlato->getPlatos(posicion);
+			objPlato = objArrPlato->getPlatosSegunPosicion(posicion);
 
 			cout << "\t\REGISTRO DEL PLATO\n\n";
 			cout << "\tNombre: "; cin >> nombre;
@@ -87,7 +87,7 @@ int main() {
 			cout << "\t\tEliminar un plato\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (posicion < 0 || posicion >= objArrPlato->getNumeroPlatos());
+			} while (posicion < 0 && posicion <= objArrPlato->getNumeroPlatos());
 
 			objArrPlato->eliminarPlato(posicion);
 
