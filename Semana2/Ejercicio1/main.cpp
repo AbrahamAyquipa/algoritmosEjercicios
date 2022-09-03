@@ -8,11 +8,12 @@ int menu() {
 		cout << "\t\tMENU PRINCIPAL\n";
 		cout << "\t1. Registro de datos\n";
 		cout << "\t2. Modificar un dato\n";
-		cout << "\t3. Eliminar un dato\n";
-		cout << "\t4. Reporte de eclipses vistos en Europa\n";
-		cout << "\t5. Reporte de eclipses que ocasionar sismos\n";
-		cout << "\t6. Reporte de eclipses que se produjeron en la noche\n";
-		cout << "\t7. Sali\n";
+		cout << "\t3. Reporte\n";
+		cout << "\t4. Eliminar un dato\n";
+		cout << "\t5. Reporte de eclipses vistos en Europa\n";
+		cout << "\t6. Reporte de eclipses que ocasionar sismos\n";
+		cout << "\t7. Reporte de eclipses que se produjeron en la noche\n";
+		cout << "\t8. Salir\n";
 		cout << "\tIngresar opcion: "; cin >> opcion;
 	} while (!(opcion  > 0 && opcion < 8));
 	return opcion;
@@ -52,7 +53,7 @@ int main() {
 			
 			objArrEclipse->agregarEclipse(new eclipse(tipo, fecha, hora, sismos, lluvias, visibilidad));
 
-			cout << "\t\tRegistro exitoso...";
+			cout << "\tRegistro exitoso...";
 			break;
 		case 2 :
 			if (objArrEclipse->getNumeroEclipses() == 0) break;
@@ -60,7 +61,7 @@ int main() {
 			cout << "\t\tMODIFICAR CONTACTO\n\n";
 			do {
 				cout << "\tPosicion: "; cin >> posicion;
-			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
+			} while (posicion < 0 || posicion >= objArrEclipse->getNumeroEclipses());
 
 			objEclipse = objArrEclipse->getEclipeSegunPosicion(posicion);
 			cout << "\t\tREGISTRO DE DATOS\n\n";
@@ -80,26 +81,30 @@ int main() {
 			objEclipse = nullptr;
 			break;
 		case 3:
+			cout << "\t\tLISTA DE ECLIPSES\n\n";
+			objArrEclipse->reporte();
+			break;
+		case 4:
 			if (objArrEclipse->getNumeroEclipses() == 0) break;
 
 			cout << "\t\tELIMINAR ECLIPSES\n\n";
 			do {
-				cout << "\tPosicion: "; cin >> posicion;
-			} while (!(posicion > 0 && posicion <= objArrEclipse->getNumeroEclipses()));
-
+				cout << "\tPosicion (de 0 en adelante): "; cin >> posicion;
+				--posicion;
+			} while (posicion < 0 || posicion >= objArrEclipse->getNumeroEclipses());
 			objArrEclipse->eliminarPlato(posicion);
 
-			cout << "\t\tContacto eliminado correctamente...";
-			break;
-		case 4:
-			cout << "\tREPORTE DE ECLIPSES VISTOS EN EUROPA\n";
-			objArrEclipse->reporteEclipsesEuropa();
+			cout << "\tContacto eliminado correctamente...";
 			break;
 		case 5:
-			cout << "\tREPORTE DE ECLIPSES QUE OCASIONAR SISMOS\n";
-			objArrEclipse->reporteEclipsesQueCausaronSismos();
+			cout << "\t\tREPORTE DE ECLIPSES VISTOS EN EUROPA\n";
+			objArrEclipse->reporteEclipsesEuropa();
 			break;
 		case 6:
+			cout << "\t\tREPORTE DE ECLIPSES QUE OCASIONAR SISMOS\n";
+			objArrEclipse->reporteEclipsesQueCausaronSismos();
+			break;
+		case 7:
 			cout << "\tREPORTE DE ECLIPSES QUE SE PRODUJERON EN LA NOCHE\n";
 			objArrEclipse->reporteEclipsesNoche();
 			break;
@@ -107,6 +112,5 @@ int main() {
 		system("pause>0");
 	}
 	delete objArrEclipse;
-	system("pause>0");
 	return 0;
 }
