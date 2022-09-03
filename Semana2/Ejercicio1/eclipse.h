@@ -59,5 +59,5 @@ void eclipse::setLluvias(bool lluvias) { this->lluvias = lluvias; };
 void eclipse::setVisibilidad(string visibilidad) { this->visibilidad = visibilidad; };
 
 void eclipse::toString() {
-	cout << "TIPO: " << this->tipo << " | FECHA: " << this->fecha << " | HORA: " << this->hora << " | SISMOS: " << this->sismos << " |	LLUVIAS: " << this->lluvias << " | VISIBILIDAD: " << this->visibilidad << endl;
+	cout << "TIPO: " << this->tipo << " | FECHA: " << this->fecha << " | HORA: " << this->hora << " | SISMOS: " << this->sismos << " | LLUVIAS: " << this->lluvias << " | VISIBILIDAD: " << this->visibilidad << endl;
 }
