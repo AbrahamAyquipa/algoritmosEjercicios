@@ -52,26 +52,36 @@ public:
 		--this->numero_eclipses;
 	}
 
+	void reporte() {
+		for (int i = 0; i < this->numero_eclipses; ++i) {
+			cout << "\tPosicion: " << i + 1 << " -> ";
+			this->arreglo_eclipse[i]->toString();
+		}
+	}
+
 	void reporteEclipsesEuropa() {
 		for (int i = 0; i < numero_eclipses; i++) {
+			string continente = this->arreglo_eclipse[i]->getVisibilidad();
+			if (continente != "europe") continue;
+
 			if(arreglo_eclipse[i]->getVisibilidad() == "Europa")
-			cout << "\tPosicion: " << i << " -> ";
+			cout << "\tPosicion: " << i + 1 << " -> ";
 			this->arreglo_eclipse[i]->toString();
 		}
 	}
 
 	void reporteEclipsesQueCausaronSismos() {
 		for (int i = 0; i < numero_eclipses; i++) {
-			if (arreglo_eclipse[i]->getSismos() == true)
-			cout << "\tPosicion: " << i << " -> ";
+			if (arreglo_eclipse[i]->getSismos())
+			cout << "\tPosicion: " << i + 1 << " -> ";
 			this->arreglo_eclipse[i]->toString();
 		}
 	}
 
 	void reporteEclipsesNoche() {
 		for (int i = 0; i < numero_eclipses; i++) {
-			if (arreglo_eclipse[i]->getSismos() == true)
-			cout << "\tPosicion: " << i << " -> ";
+			if (arreglo_eclipse[i]->getSismos() <= 1800) continue;
+			cout << "\tPosicion: " << i + 1 << " -> ";
 			this->arreglo_eclipse[i]->toString();
 		}
 	}
