@@ -66,21 +66,6 @@ public:
 		}
 	}
 
-	void reportePicante() {
-		for (int i = 0; i < numero_platos; i++) {
-			if (arreglo_platos[i]->getPicante() == true)
-			cout << "\tPosicion: " << i << " -> ";
-			this->arreglo_platos[i]->toString();
-		}
-	}
-
-	void reportemas100() {
-		for (int i = 0; i < numero_platos; i++) {
-			if (arreglo_platos[i]->getPrecio() > 100)
-				cout << "\tPosicion: " << i << " -> ";
-			this->arreglo_platos[i]->toString();
-		}
-	}
 
 	plato* getPlatosSegunPosicion(int posicion) {
 		return this->arreglo_platos[posicion];
