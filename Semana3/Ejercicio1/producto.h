@@ -59,14 +59,6 @@ public:
 		}
 	}
 
-	void reporte() {
-		for (int i = 0; i < numero_platos; i++) {
-			cout << "\tPosicion: " << i << " -> ";
-			this->arreglo_platos[i]->toString();
-		}
-	}
-
-
 	plato* getPlatosSegunPosicion(int posicion) {
 		return this->arreglo_platos[posicion];
 	}
