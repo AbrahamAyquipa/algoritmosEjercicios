@@ -27,12 +27,7 @@ public:
 		++this->numero_platos;
 	}
 
-	void eliminarPlato(int posicion) {
-		plato** aux = new plato * [this->numero_platos - 1];
-
-		int actual = 0;
-		for (int i = 0; i < this->numero_platos; ++i) {
-			if (i == posicion) continue;
+	
 			aux[actual] = this->arreglo_platos[i];
 			++actual;
 		}
