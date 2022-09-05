@@ -21,16 +21,7 @@ public:
 		delete[] this->arreglo_platos;
 	}
 
-	void agregarPlato(plato* obj) {
-		plato** aux = new plato * [this->numero_platos + 1];
-
-		for (int i = 0; i < this->numero_platos; ++i) {
-			aux[i] = this->arreglo_platos[i];
-		}
-
-		aux[this->numero_platos] = obj;
-
-		delete[] this->arreglo_platos;
+	
 		this->arreglo_platos = aux;
 
 		++this->numero_platos;
