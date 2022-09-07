@@ -49,7 +49,4 @@ public:
 		return this->arreglo_platos[posicion];
 	}
 
-	int getNumeroPlatos() {
-		return this->numero_platos;
-	}
 };
