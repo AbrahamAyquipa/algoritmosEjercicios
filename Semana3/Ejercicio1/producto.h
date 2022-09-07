@@ -45,8 +45,6 @@ public:
 		}
 	}
 
-	plato* getPlatosSegunPosicion(int posicion) {
-		return this->arreglo_platos[posicion];
-	}
+}
 
 };
