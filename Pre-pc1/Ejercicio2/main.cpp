@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ArrApoyo.h"
+#include "arrApoyo.h"
 
 void menu() {
 	cout << "::::::::::::::::::::MENU::::::::::::::::::::\n";
