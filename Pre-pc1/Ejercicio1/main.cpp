@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ArrProducto.h"
+#include "arrProducto.h"
 
 void menu() {
 	cout << "::::::::::::::::::::MENU::::::::::::::::::::\n";
