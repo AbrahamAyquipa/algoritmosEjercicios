@@ -1,5 +1,5 @@
 #pragma once
-#include "Apoyo.h"
+#include "apoyo.h"
 
 class ArrApoyo {
 private:
