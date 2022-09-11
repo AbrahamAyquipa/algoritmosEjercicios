@@ -1,44 +1,34 @@
 #pragma once
-#include "ventaProductos.h"
+#include <iostream>
+using namespace std;
+#include "arrVentaProductos.h"
 
-class arrVentaProductos {
+class venta {
 private:
-	ventaProductos** arreglo_venta_productos;
-	int numero_ventas;
+	int codigo_venta;
+	string fecha;
+	string codigo_cliente;
+	arrVentaProductos* objArrVentaProductos;
 public:
-	arrVentaProductos() {
-		this->arreglo_venta_productos = nullptr;
-		this->numero_ventas = 0;
+	venta(int codigo_venta, string fecha, string codigo_cliente, arrVentaProductos* objArrVentaProductos) {
+		this->codigo_venta = codigo_venta;
+		this->fecha = fecha;
+		this->codigo_cliente = codigo_cliente;
+		this->objArrVentaProductos = objArrVentaProductos;
 	}
 
-	~arrVentaProductos() {
-		for (int i = 0; i < this->numero_ventas; ++i) {
-			delete this->arreglo_venta_productos[i];
+	~venta() {
+		delete objArrVentaProductos;
+	}
+
+	void toString() {
+		cout << "\tSale Id: " << this->codigo_venta << '\n';
+		cout << "\tDate: " << this->fecha << '\n';
+		cout << "\tClient Id: " << this->codigo_cliente << '\n';
+		cout << "\tProducts:\n";
+		for (int i = 0; i < objArrVentaProductos->getNumeroVentaProductos(); ++i) {
+			cout << "\t\tID: " << objArrVentaProductos->getVentaProductoSegunPosicion(i)->getCodigoProducto() << " - QUANTITY: " << objArrVentaProductos->getVentaProductoSegunPosicion(i)->getCantidad() << '\n';
 		}
-		delete[] arreglo_venta_productos;
-	}
-
-	void agregarProducto(ventaProductos* obj) {
-		ventaProductos** aux = new ventaProductos * [this->numero_ventas + 1];
-
-		for (int i = 0; i < this->numero_ventas; ++i) {
-			aux[i] = arreglo_venta_productos[i];
-		}
-
-		aux[this->numero_ventas] = obj;
-
-		delete[] this->arreglo_venta_productos;
-		this->arreglo_venta_productos = aux;
-
-		++this->numero_ventas;
-	}
-
-	int getNumeroVentaProductos() {
-		return this->numero_ventas;
-	}
-
-	ventaProductos* getVentaProductoSegunPosicion(int posicion) {
-		if (posicion < 0 || posicion >= this->numero_ventas) throw "Error: Index out of range";
-		return this->arreglo_venta_productos[posicion];
+		cout << '\n';
 	}
 };
