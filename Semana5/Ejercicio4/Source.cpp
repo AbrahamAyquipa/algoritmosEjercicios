@@ -1,7 +1,7 @@
+#include "pch.h"
 #include "ArregloEntidad.h"
 
-int main()
-{
+int main() {
 	Console::SetWindowSize(ANCHO, ALTO);
 	Console::CursorVisible = false;
 	ArregloEntidad* obj = new ArregloEntidad();
@@ -11,10 +11,8 @@ int main()
 	getch();
 	system("cls");
 
-	while (true)
-	{
-		if (_kbhit())
-		{
+	while (true) {
+		if (_kbhit()) {
 			char tecla = toupper(_getch());
 			if (tecla == 'A')
 				obj->Agregar(new Alfa());
@@ -26,7 +24,7 @@ int main()
 
 		if (obj->GetCantidad() >= 20)
 			break;
-		
+
 		_sleep(200);
 	}
 	system("cls");
