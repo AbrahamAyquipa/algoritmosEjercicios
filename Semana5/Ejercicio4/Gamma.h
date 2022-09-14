@@ -1,18 +1,16 @@
 #pragma once
 #include "Entidad.h"
 
-class Gamma : public Entidad
-{
+class Gamma : public Entidad {
 public:
-	Gamma()
-	{
+	Gamma() {
 		ID = 3;
 		ancho = 19; alto = 10;
 		x = ANCHO - ancho; y = 0;
 		color = ConsoleColor::Green;
 	}
-	void Mostrar()
-	{
+
+	void Mostrar() {
 		Console::ForegroundColor = color;
 		Console::SetCursorPosition(x, y + 0); cout << "         .         ";
 		Console::SetCursorPosition(x, y + 1); cout << "         |         ";
