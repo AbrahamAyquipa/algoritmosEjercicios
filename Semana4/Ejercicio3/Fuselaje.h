@@ -17,8 +17,10 @@ public:
 	}
 
 	void borrar() {
+		//cout << "     ";
 		std::string blank = "";
 		for (int i = 0; i < this->figura.length(); ++i) {
+			//concatenacion con el ancho de la figura
 			blank += ' ';
 		}
 		std::cout << blank;
