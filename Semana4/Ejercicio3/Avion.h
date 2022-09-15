@@ -5,6 +5,7 @@
 
 class Avion {
 private:
+	//instanciar objetos
 	Fuselaje* fuselaje;
 	Alas* alas;
 	TrenAterrizaje* tAterrizaje;
@@ -13,7 +14,6 @@ private:
 	int maxDiffX;
 	int x, y;
 	int dx, dy;
-	int dxMax;
 	int w, h;
 	int ySuelo;
 public:
@@ -24,19 +24,25 @@ public:
 		this->alas = new Alas();
 		this->tAterrizaje = new TrenAterrizaje();
 
+		//ancho y alto de la figura
 		this->w = 11;
 		this->h = 3;
 
+		//para que no se salga de los bordes horizontales
 		this->initX = gen.Next(this->w, width - this->w);
 		this->x = initX;
+		//y empieza en 0 para que inicie arriba
 		this->y = 0;
 
 		this->maxDiffX = 3;
+		//desplazamiento vertical de uno en uno
 		this->dy = 1;
 
 		int dir[2] = { -1, 1 };
+		//posicion horizontal aleatoria
 		this->dx = dir[gen.Next(0, 2)] * 3;
 
+		//valor del "suelo"
 		this->ySuelo = height;
 	}
 
@@ -52,6 +58,7 @@ public:
 
 	void imprimir() {
 		System::Console::SetCursorPosition(this->x, this->y);
+		//el espacio para dar formato
 		std::cout << "   ";
 		this->fuselaje->imprimir();
 
@@ -64,6 +71,7 @@ public:
 	}
 
 	void borrar() {
+		//lo mismo que imprimir solo que se llama a borrar
 		System::Console::SetCursorPosition(this->x, this->y);
 		std::cout << "   ";
 		this->fuselaje->borrar();
@@ -77,6 +85,7 @@ public:
 	}
 
 	void mover(int width, int height) {
+		//solo se mueve verticalmente
 		this->y += this->dy;
 
 		int newX = this->x + this->dx;
@@ -86,6 +95,10 @@ public:
 	}
 
 	bool yaAterrizo() {
-		return this->y + this->dy >= this->ySuelo;
+		//si la coordenada es mayor al suelo, ya tocó el suelo
+		
+		//return this->y + this->dy >= this->ySuelo;
+		if (this->y >= this->ySuelo) return true;
+		return false;
 	}
 };
