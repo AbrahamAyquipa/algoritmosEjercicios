@@ -20,10 +20,8 @@ public:
 };
 
 Cuadrado::Cuadrado() {
-	x = 2;
-	y = 2;
-	dx = 1;
-	dy = 0;
+	x = y = 0;
+	dx = dy = 0;
 	forma = 4;
 
 	System::Random numero_random;
@@ -32,11 +30,11 @@ Cuadrado::Cuadrado() {
 
 Cuadrado::~Cuadrado() {}
 
-void Cuadrado::nuevoColor(){
+void Cuadrado::nuevoColor() {
 	color = rand() % 10;
 }
 
-void Cuadrado::borrar_cuadrados(){
+void Cuadrado::borrar_cuadrados() {
 	Console::SetCursorPosition(x, y); cout << " ";
 	Console::SetCursorPosition(x + 1, y); cout << " ";
 	Console::SetCursorPosition(x, y + 1); cout << " ";
@@ -44,10 +42,10 @@ void Cuadrado::borrar_cuadrados(){
 }
 
 void Cuadrado::mover_cuadrados() {
-	if (x == 60 && y == 2) { dx = 0; dy = 1; }
-	if (x == 60 && y == 20) { dy = 0; dx = -1; }
-	if (x == 2 && y == 20) { dx = 0; dy = -1; }
-	if (x == 2 && y == 2) { dy = 0; dx = 1; }
+	if (x == 0 && y == 0) { dx = 1; dy = 0; }
+	if (x == 58 && y == 0) { dx = 0; dy = 1; }
+	if (x == 58 && y == 18) { dx = -1; dy = 0; }
+	if (x == 0 && y == 18) { dx = 0; dy = -1; }
 	x += dx;
 	y += dy;
 }
