@@ -27,10 +27,10 @@ public:
 		return x;
 	}
 	
-	int GetY()
-	{
+	int GetY() {
 		return y;
 	}
+	
 	int GetDX()
 	{
 		return dx;
