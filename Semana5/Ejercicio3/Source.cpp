@@ -1,16 +1,13 @@
 #include "ArregloEntidad.h"
 
-int main()
-{
+int main() {
 	srand(time(NULL));
 	Console::SetWindowSize(ANCHO, ALTO);
 	Console::CursorVisible = false;
 	ArregloEntidad* obj = new ArregloEntidad();
 
-	while (true)
-	{
-		if (_kbhit())
-		{
+	while (true) {
+		if (_kbhit()) {
 			char tecla = _getch();
 			switch (tecla)
 			{
