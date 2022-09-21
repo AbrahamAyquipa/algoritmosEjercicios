@@ -25,5 +25,5 @@ int main() {
 	cout << "Perimetro romboide: ";
 	objRomboide->calcularPerimetroRomboide(base, altura);
 	cout << endl;
-	return 0;
+	return 0
 }
