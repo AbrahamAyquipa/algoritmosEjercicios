@@ -10,7 +10,6 @@
 #include "Avion8.h"
 #include "Avion9.h"
 
-
 class ArregloEntidad {
 private:
 	int cant;
