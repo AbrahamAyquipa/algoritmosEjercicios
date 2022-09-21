@@ -9,8 +9,7 @@ using namespace System;
 #define ANCHO 80
 #define ALTO 30
 
-class Entidad
-{
+class Entidad {
 protected:
 	//int ID;
 	int x, y;
