@@ -25,8 +25,7 @@ public:
 		delete[] arreglo;
 	}
 
-	void Agregar(Entidad* nuevo)
-	{	
+	void Agregar(Entidad* nuevo) {	
 		Entidad** aux = new Entidad * [cant + 1];
 		
 		for (int i = 0; i < cant; i++)
@@ -37,8 +36,8 @@ public:
 		cant++;
 		arreglo = aux;
 	}
-	void Eliminar(Entidad* eliminado)
-	{
+	
+	void Eliminar(Entidad* eliminado) {
 		Entidad** aux = new Entidad * [cant - 1];
 		
 		int i;
@@ -52,8 +51,8 @@ public:
 		cant--;
 		arreglo = aux;
 	}
-	void Eliminar(int pos)
-	{
+	
+	void Eliminar(int pos) {
 		if (pos < cant)
 		{
 			arreglo[pos]->Borrar();
@@ -61,20 +60,18 @@ public:
 		}
 	}
 
-	void Borrar()
-	{
+	void Borrar() {
 		for (int i = 0; i < cant; i++)
 			arreglo[i]->Borrar();
 	}
-	void Mover()
-	{
+	
+	void Mover() {
 		for (int i = 0; i < cant; i++)
 			arreglo[i]->Mover();
 	}
-	void Mostrar()
-	{
-		for (int i = 0; i < cant; i++)
-		{
+	
+	void Mostrar() {
+		for (int i = 0; i < cant; i++) {
 			arreglo[i]->Mostrar();
 			/*switch (arreglo[i]->GetID())
 			{
