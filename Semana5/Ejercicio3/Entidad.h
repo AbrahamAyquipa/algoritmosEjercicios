@@ -86,8 +86,8 @@ public:
 				cout << " ";
 			}
 	}
-	void Mover()
-	{
+	
+	void Mover() {
 		if (x + dx < 0 || x + ancho + dx >= ANCHO)
 			dx *= -1;
 
@@ -97,8 +97,8 @@ public:
 		x += dx;
 		y += dy;
 	}
-	virtual void Mostrar()
-	{
+	
+	virtual void Mostrar() {
 		cout << "CLASE ENTIDAD";
 	}
 };
