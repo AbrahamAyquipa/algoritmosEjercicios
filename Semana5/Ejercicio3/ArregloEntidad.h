@@ -15,8 +15,7 @@ private:
 	int cant;
 	Entidad** arreglo;
 public:
-	ArregloEntidad()
-	{
+	ArregloEntidad() {
 		cant = 0;
 	}
 	~ArregloEntidad()
