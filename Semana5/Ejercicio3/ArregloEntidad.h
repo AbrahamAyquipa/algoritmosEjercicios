@@ -11,8 +11,7 @@
 #include "Avion9.h"
 
 
-class ArregloEntidad
-{
+class ArregloEntidad {
 private:
 	int cant;
 	Entidad** arreglo;
