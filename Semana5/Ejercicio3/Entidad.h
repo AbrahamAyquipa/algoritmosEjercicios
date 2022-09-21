@@ -39,12 +39,11 @@ public:
 	{
 		return dy;
 	}
-	int GetAlto()
-	{
+	
+	int GetAlto() {
 		return alto;
 	}
-	int GetAncho()
-	{
+	int GetAncho() {
 		return ancho;
 	}
 	int GetID()
