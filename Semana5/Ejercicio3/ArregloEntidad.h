@@ -18,8 +18,8 @@ public:
 	ArregloEntidad() {
 		cant = 0;
 	}
-	~ArregloEntidad()
-	{
+	
+	~ArregloEntidad() {
 		for (int i = 0; i < cant; i++)
 			delete arreglo[i];
 		delete[] arreglo;
