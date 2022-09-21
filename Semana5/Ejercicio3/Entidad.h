@@ -17,16 +17,16 @@ protected:
 	int alto, ancho;
 	ConsoleColor color;
 public:
-	Entidad()
-	{
+	Entidad() {
 		dx = rand() % 5 + 1; 
 		dy = rand() % 5 + 1;
 		color = (ConsoleColor)(rand() % 15 + 1);
 	}
-	int GetX()
-	{
+	
+	int GetX() {
 		return x;
 	}
+	
 	int GetY()
 	{
 		return y;
