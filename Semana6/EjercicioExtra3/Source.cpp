@@ -16,8 +16,7 @@ int main() {
     cTecla = getch();
     Console::SetCursorPosition(x , y );
     cout << " ";
-    Console::SetCursorPosition(x + 1, y + 1);
-    cout << " ";
+    Console::SetCursorPosition(x + 1, y + 1); cout << " ";
     //if (cTecla == 0) cTecla = getch();
 
     if (cTecla == char(65)) --x;// A - 75
