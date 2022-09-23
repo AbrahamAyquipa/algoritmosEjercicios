@@ -11,6 +11,7 @@ int main() {
   
   Console::SetCursorPosition(x, y); cout << (char)219;
   Console::SetCursorPosition(x + 1, y + 1); cout << (char)64;
+  
   while (cTecla != char(78)) //N {
     cTecla = getch();
     Console::SetCursorPosition(x , y ); cout << " ";
