@@ -4,6 +4,7 @@
 #include <conio.h>
 using namespace System;
 using namespace std;
+
 int mov[20][20] =
 {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
