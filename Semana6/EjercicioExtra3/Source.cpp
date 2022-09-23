@@ -14,8 +14,7 @@ int main() {
   cout << (char)64;
   while (cTecla != char(78)) //N {
     cTecla = getch();
-    Console::SetCursorPosition(x , y );
-    cout << " ";
+    Console::SetCursorPosition(x , y ); cout << " ";
     Console::SetCursorPosition(x + 1, y + 1); cout << " ";
     //if (cTecla == 0) cTecla = getch();
 
