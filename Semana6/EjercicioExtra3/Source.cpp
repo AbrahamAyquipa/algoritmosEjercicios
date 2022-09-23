@@ -8,6 +8,7 @@ using namespace std;
 int main() {
   char cTecla;
   int y = 9, x = 8;
+  
   Console::SetCursorPosition(x, y);
   cout << (char)219;
   Console::SetCursorPosition(x + 1, y + 1);
