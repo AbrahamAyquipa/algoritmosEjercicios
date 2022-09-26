@@ -11,10 +11,13 @@ public:
 		m = rand() % 12 + 1;
 		a = 1950 + rand() % 72;
 	}
+
 	~Date() {}
+
 	int getD() { return d; }
 	int getM() { return m; }
 	int getA() { return a; }
+
 	string getFechaCompleta() {
 		//dd//mm//aa
 		string aux;
@@ -25,8 +28,4 @@ public:
 		aux.append(to_string(a));
 		return aux;
 	}
-
-
 };
-
-
