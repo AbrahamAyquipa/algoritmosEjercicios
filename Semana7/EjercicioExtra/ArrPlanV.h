@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "PlanVacaciones.h"
+
 class ArrPlanV {
 private:
 	vector< PlanVacaciones*> arr; //PlanVacaciones **arr;
