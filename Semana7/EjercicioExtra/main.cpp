@@ -21,14 +21,17 @@ int main() {
 	cout << "\n----------------------------------------\n";
 	arr->reporte1(1990, 2021);
 	getch(); system("cls");
+
 	cout << "\nReporte Vacaciones Hotel Westin";
 	cout << "\n---------------------------------\n";
 	arr->reporte2("Westin");
 	getch(); system("cls");
+
 	cout << "\nReporte Plan de Vacaciones";
 	cout << "\n---------------------------\n";
 	arr->reporte3();
 	getch(); system("cls");
+
 	arr->reporte31();
 	cin.get();
 	cin.ignore();
