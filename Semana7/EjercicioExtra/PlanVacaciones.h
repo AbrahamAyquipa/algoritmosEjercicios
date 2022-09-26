@@ -10,7 +10,9 @@ public:
 		duracion = 1 + rand() % 15;
 		numeroP = 1 + rand() % 9;
 	}
+
 	~PlanVacaciones(){}
+
 	void getInfoPlanV() {
 		cout << "Duracion: " << duracion << endl;
 		cout << "Numero de Personas: " << numeroP << endl;
