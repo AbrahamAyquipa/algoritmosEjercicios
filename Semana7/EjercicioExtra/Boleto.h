@@ -1,4 +1,5 @@
 #include "Date.h"
+
 class Boleto {
 protected:
 	int codigo;
