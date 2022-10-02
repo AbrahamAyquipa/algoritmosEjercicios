@@ -36,7 +36,6 @@ int main() {
 		light = !light;
 		_sleep(250);
 	}
-
 	delete game;
 	return 0;
 }
