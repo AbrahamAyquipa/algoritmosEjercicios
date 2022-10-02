@@ -24,7 +24,6 @@ int main() {
 	}
 
 	system("cls");
-	
 	System::Console::SetCursorPosition((WIDTH - 7) / 2, HEIGHT / 2);
 	if (game->getGane()) {
 		System::Console::ForegroundColor = System::ConsoleColor::Green;
