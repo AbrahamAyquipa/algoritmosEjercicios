@@ -22,7 +22,6 @@ int main() {
 		game->gestionarJuego();
 		_sleep(150);
 	}
-
 	system("cls");
 	System::Console::SetCursorPosition((WIDTH - 7) / 2, HEIGHT / 2);
 	if (game->getGane()) {
