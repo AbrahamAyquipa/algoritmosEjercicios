@@ -25,7 +25,6 @@ int main() {
 		game->runGame();
 		_sleep(150);
 	}
-
 	system("cls");
 	while (true) {
 		if (_kbhit()) break;
