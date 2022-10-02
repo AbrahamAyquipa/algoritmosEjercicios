@@ -93,7 +93,6 @@ public:
 				tiempo = time(0);
 			}
 		}
-		
 	}
 
 	void obtenerGanador() {
