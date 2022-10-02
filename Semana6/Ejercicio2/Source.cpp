@@ -27,7 +27,6 @@ int main() {
 	}
 
 	system("cls");
-
 	while (true) {
 		if (_kbhit()) break;
 		System::Console::ForegroundColor = (System::ConsoleColor)(light ? 14 : 6);
