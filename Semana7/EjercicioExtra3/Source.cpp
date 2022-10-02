@@ -17,7 +17,6 @@ int main() {
             tecla = toupper(tecla);
             controlador->get_nave()->posicionar(tecla);
         }
-
         controlador->posicionarTodo();
         controlador->dibujarTodo();
         _sleep(100);
