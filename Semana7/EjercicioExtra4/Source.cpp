@@ -34,7 +34,6 @@ int main() {
 		System::Console::ForegroundColor = System::ConsoleColor::Red;
 		std::cout << "PERDISTE";
 	}
-	
 	system("pause>0");
 	return 0;
 }
