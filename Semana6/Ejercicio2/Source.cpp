@@ -21,7 +21,6 @@ int main() {
 			game->gestionTecla(toupper(t));
 			_flushall();
 		}
-
 		game->runGame();
 		_sleep(150);
 	}
