@@ -18,7 +18,6 @@ int main() {
 			game->gestionarTecla(toupper(t));
 			_flushall();
 		}
-
 		game->gestionarJuego();
 		_sleep(150);
 	}
