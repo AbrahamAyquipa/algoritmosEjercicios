@@ -8,6 +8,7 @@ int main() {
 
 	System::Console::SetWindowSize(WIDTH, HEIGHT);
 	System::Console::CursorVisible = false;
+	
 	char t;
 	Controller* game = new Controller(4, WIDTH, HEIGHT);
 
