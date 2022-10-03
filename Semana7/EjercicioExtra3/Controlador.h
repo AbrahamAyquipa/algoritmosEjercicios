@@ -20,7 +20,7 @@ public:
 		proyectiles.push_back(new Proyectil(54, Console::WindowHeight - 7, 2, 6, 6));
 		proyectiles.push_back(new Proyectil(81, 2, 1, 6, 6));
 		proyectiles.push_back(new Proyectil(90, Console::WindowHeight - 7, 2, 6, 6));
-		
+
 		aliens.push_back(new Alien(37, 2, 1, 3, 11));
 		aliens.push_back(new Alien(65, 2, 1, 3, 11));
 	}
@@ -75,6 +75,8 @@ public:
 		nave->dibujar();
 	}
 
+	int cont = 0;
+
 	void colisiones() {
 		for (int i = 0; i < proyectiles.size(); i++) {
 			if (nave->obtenerRectangulo().IntersectsWith(proyectiles[i]->obtenerRectangulo())) {
@@ -91,8 +93,29 @@ public:
 				system("cls");
 				agregarVectores();
 				tiempo = time(0);
+				cont++;
 			}
 		}
+
+		for (int i = 0; i < aliens.size(); i++) {
+			if (nave->obtenerRectangulo().IntersectsWith(aliens[i]->obtenerRectangulo())) {
+				nave->set_x(2);
+				nave->set_y(12.0);
+				eliminarVectores();
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				system("cls");
+				Console::SetCursorPosition(38, 12);
+				cout << "IMPACTO NAVE - PROYECTIL!!! - GAME OVER !!!";
+				Console::SetCursorPosition(37, 14);
+				cout << "Presiona una tecla para volver a intentarlo...";
+				_getch();
+				system("cls");
+				agregarVectores();
+				tiempo = time(0);
+				cont++;
+			}
+		}
+		if (cont == 3) exit(0);
 	}
 
 	void obtenerGanador() {
@@ -123,7 +146,7 @@ public:
 		proyectiles.push_back(new Proyectil(54, Console::WindowHeight - 7, 1, 6, 6));
 		proyectiles.push_back(new Proyectil(81, 2, 1, 6, 6));
 		proyectiles.push_back(new Proyectil(90, Console::WindowHeight - 7, 1, 6, 6));
-		
+
 		aliens.push_back(new Alien(37, 2, 1, 3, 11));
 		aliens.push_back(new Alien(65, 2, 1, 3, 11));
 	}
