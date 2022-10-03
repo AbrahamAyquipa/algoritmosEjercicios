@@ -25,7 +25,8 @@ int main() {
 	cout << "\nReporte Vacaciones Hotel Westin";
 	cout << "\n---------------------------------\n";
 	arr->reporte2("Westin");
-	getch(); system("cls");
+	getch(); 
+	system("cls");
 
 	cout << "\nReporte Plan de Vacaciones";
 	cout << "\n---------------------------\n";
