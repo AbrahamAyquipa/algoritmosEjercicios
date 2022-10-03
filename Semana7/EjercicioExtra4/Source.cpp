@@ -5,6 +5,7 @@
 int main() {
 	const int WIDTH = 80;
 	const int HEIGHT = 40;
+	
 	System::Console::SetWindowSize(WIDTH, HEIGHT);
 	System::Console::CursorVisible = false;
 	
