@@ -3,13 +3,15 @@
 
 class Romboide : public Forma {
 public:
-	Romboide() : Forma(base, altura) {}
+	Romboide(double base, double altura, double lado1, double lado2, double lado3) : Forma(base, altura, lado1, lado2, lado3) {}
+
 	~Romboide() {}
-	void calcularPerimetro(double base, double altura) {
-		cout << (base * 2) + (altura * 2);
+
+	void calcularArea() {
+		cout << (base * altura);
 	}
 
-	void calcularArea(double base, double altura) {
-		cout << (base * altura);
+	void calcularPerimetro() {
+		cout << (base * 2) + (altura * 2);
 	}
 };
