@@ -14,27 +14,27 @@ public:
 	}
 
 	~VectorMeteoros() {
-		for (Meteotoro* estrellas : this->meteoros) {
-			delete estrellas;
+		for (Meteotoro* objMeteoro: this->meteoros) {
+			delete objMeteoro;
 		}
 		this->meteoros.clear();
 	}
 
 	void agregarMeteoros(int width, int height) {
-		Meteotoro* objMeteoros = new Meteotoro(width, height);
+		Meteotoro* objMeteoro = new Meteotoro(width, height);
 
 		System::Random numero_aleatorio;
-		objMeteoros->setX(numero_aleatorio.Next(0, width - objMeteoros->getW()));
-		objMeteoros->setY(numero_aleatorio.Next(0, height - objMeteoros->getH()));
+		objMeteoro->setX(numero_aleatorio.Next(0, width - objMeteoro->getW()));
+		objMeteoro->setY(numero_aleatorio.Next(0, height - objMeteoro->getH()));
 
-		this->meteoros.push_back(objMeteoros);
+		this->meteoros.push_back(objMeteoro);
 	}
 
 	void gestionMeteoros(int width, int height) {
-		for (Meteotoro* meteoros : this->meteoros) {
-			meteoros->borrar();
-			meteoros->mover();
-			meteoros->imprimir();
+		for (Meteotoro* objMeteoro : this->meteoros) {
+			objMeteoro->borrar();
+			objMeteoro->mover();
+			objMeteoro->imprimir();
 		}
 		this->eliminarMeteoros();
 	}
