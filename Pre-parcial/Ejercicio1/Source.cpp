@@ -7,17 +7,19 @@ int main() {
 	const int HEIGHT = 40;
 
 	const int CANTIDAD_ESTRELLAS = 5;
+	const int CANTIDAD_METEOROS = 6;
+	const int CANTIDAD_BASURAS = 4;
 
-	const std::string MENSAJE_VICTORIA = "FELICIDADES, GANASTE!";
+	const std::string MENSAJE_VICTORIA = "FELICIDADES, GANASTE!!!";
 	char tecla;
 	bool letrero = true;
 
 	System::Console::SetWindowSize(WIDTH, HEIGHT);
 	System::Console::CursorVisible = false;
 
-	Controladora* juego = new Controladora(WIDTH, HEIGHT, CANTIDAD_ESTRELLAS);
+	Controladora* juego = new Controladora(WIDTH, HEIGHT, CANTIDAD_ESTRELLAS, CANTIDAD_METEOROS, CANTIDAD_BASURAS);
 
-	while (!juego->isGameOverCase()) {
+	while (!juego->gameOver()) {
 		if (_kbhit()) {
 			tecla = _getch();
 			juego->gestionTecla(toupper(tecla));
