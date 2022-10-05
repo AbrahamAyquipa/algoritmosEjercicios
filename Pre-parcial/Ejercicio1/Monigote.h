@@ -4,16 +4,22 @@
 class Monigote : public Entidad {
 private:
 	int cantidadEstrellasAtrapadas;
+	int cantidadBasurasAtrapadas;
 	int width, height;
 	int color;
 public:
 	Monigote(int width, int height) : Entidad(x, y, dx, dy, w, h) {
 		this->cantidadEstrellasAtrapadas = 0;
+		this->cantidadBasurasAtrapadas = 0;
 
 		this->width = width;
 		this->height = height;
 
-		this->x = y = 0;
+		System::Random numero_random;
+
+		this->x = numero_random.Next(0, this->width - 1);
+		this->y = numero_random.Next(0, this->height - 1);
+
 		this->dx = dy = 1;
 
 		this->w = 1;
@@ -60,4 +66,7 @@ public:
 
 	void agregarEstrellasCapturadas() { ++this->cantidadEstrellasAtrapadas; }
 	int getCantidadEstrellasAtrapados() { return this->cantidadEstrellasAtrapadas; }
+
+	void agregarBasurasCapturadas() { ++this->cantidadBasurasAtrapadas; }
+	int getCantidadBasurasAtrapadas() { return this->cantidadBasurasAtrapadas; }
 };
