@@ -29,6 +29,9 @@ public:
 		}
 	}
 
+	virtual void mover() {}
+	virtual void imprimir() {}
+
 	void setX(int x) { this->x = x; }
 	void setY(int y) { this->y = y; }
 
