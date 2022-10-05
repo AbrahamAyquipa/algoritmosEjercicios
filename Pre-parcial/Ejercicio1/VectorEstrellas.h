@@ -14,8 +14,8 @@ public:
 	}
 
 	~VectorEstrellas() {
-		for (Estrella* estrellas : this->estrellas) {
-			delete estrellas;
+		for (Estrella* objEstrellas : this->estrellas) {
+			delete objEstrellas;
 		}
 		this->estrellas.clear();
 	}
@@ -32,7 +32,6 @@ public:
 
 	void gestionEstrellas(int width, int height) {
 		for (Estrella* estrellas : this->estrellas) {
-			//estrellas->borrar();
 			estrellas->imprimir();
 		}
 		this->eliminarEstrellas();
