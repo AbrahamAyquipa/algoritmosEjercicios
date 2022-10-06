@@ -4,7 +4,7 @@
 #include "VectorEstrellas.h"
 #include "VectorMeteoros.h"
 #include "VectorBasura.h"
-
+#include "VectorAlien.h"
 
 class Controladora {
 private:
@@ -13,26 +13,30 @@ private:
 	int cantidadEstrellas;
 	int cantidadMeteoros;
 	int cantidadBasuras;
+	int cantidadAliens;
 
 	Monigote* objMonigote;
 	VectorEstrellas* objVectorEstrellas;
 	VectorMeteoros* objVectorMeteoros;
 	VectorBasura* objVectorBasura;
+	VectorAlien* objVectorAliens;
 
 	time_t tiempo;
 public:
-	Controladora(int width, int height, int cantidadEstrellas, int cantidadMeteoros,int cantidadBasuras) {
+	Controladora(int width, int height, int cantidadEstrellas, int cantidadMeteoros,int cantidadBasuras, int cantidadAliens) {
 		this->width = width;
 		this->height = height;
 
 		this->cantidadEstrellas = cantidadEstrellas;
 		this->cantidadMeteoros = cantidadMeteoros;
 		this->cantidadBasuras = cantidadBasuras;
+		this->cantidadAliens = cantidadAliens;
 
 		this->objMonigote = new Monigote(width, height);
 		this->objVectorEstrellas = new VectorEstrellas(this->cantidadEstrellas, width, height);
 		this->objVectorMeteoros = new VectorMeteoros(this->cantidadMeteoros, width, height);
 		this->objVectorBasura = new VectorBasura(this->cantidadBasuras, width, height);
+		this->objVectorAliens = new VectorAlien(this->cantidadAliens, width, height);
 
 		tiempo = time(0);
 	}
@@ -42,6 +46,7 @@ public:
 		delete this->objVectorEstrellas;
 		delete this->objVectorMeteoros;
 		delete this->objVectorBasura;
+		delete this->objVectorAliens;
 	}
 
 	void gestionTecla(char tecla) {
@@ -84,6 +89,16 @@ public:
 		}
 	}
 
+	void gestionarColisionesAliens() {
+		for (Alien* objAliens : this->objVectorAliens->getBasura()) {
+			if (objAliens->getRectangle().IntersectsWith(this->objMonigote->getRectangle())) {
+				this->objMonigote->agregarBasurasCapturadas();
+				objAliens->setActivo(false);
+				exit(0);
+			}
+		}
+	}
+
 	void mostrarLetreroEstrellas() {
 		System::Console::ForegroundColor = System::ConsoleColor::White;
 		System::Console::SetCursorPosition(0, height - 1);
@@ -106,6 +121,7 @@ public:
 		cout << i;
 	}
 
+
 	void mostrarLetreroTiempo() {
 		System::Console::SetCursorPosition(0, height - 3);
 		cout << "tiempo: " << clock() / 1000;
@@ -121,17 +137,23 @@ public:
 		this->gestionColisionesEstrellas();
 		this->gestionarColisionesMeteoros();
 		this->gestionarColisionesBasura();
+		this->gestionarColisionesAliens();
 
 		this->objVectorEstrellas->gestionEstrellas(width, height);
 		this->objVectorMeteoros->gestionMeteoros(width, height);
 		this->objVectorBasura->gestionBasura(width, height);
+		this->objVectorAliens->gestionAlien(width, height);
 
 		this->mostrarLetreroEstrellas();
 		this->mostrarLetreroTiempo();
 		this->mostrarLetreroBasura();
 	}
 
-	bool gameOver() {
+	bool gameOverCase1() {
 		return this->objMonigote->getCantidadEstrellasAtrapados() == this->cantidadEstrellas;
+	}
+
+	bool gameOverCase2() {
+		return this->objMonigote->getCantidadBasurasAtrapadas() == this->cantidadEstrellas;
 	}
 };
