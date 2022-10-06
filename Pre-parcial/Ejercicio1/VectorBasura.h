@@ -14,8 +14,8 @@ public:
 	}
 
 	~VectorBasura() {
-		for (Basura* objbasuras : this->basuras) {
-			delete objbasuras;
+		for (Basura* objBasura : this->basuras) {
+			delete objBasura;
 		}
 		this->basuras.clear();
 	}
