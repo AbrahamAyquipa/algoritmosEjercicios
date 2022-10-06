@@ -9,6 +9,7 @@ int main() {
 	const int CANTIDAD_ESTRELLAS = 5;
 	const int CANTIDAD_METEOROS = 6;
 	const int CANTIDAD_BASURAS = 4;
+	const int CANTIDAD_ALIENS = 3;
 
 	const std::string MENSAJE_VICTORIA = "FELICIDADES, GANASTE!!!";
 	char tecla;
@@ -17,9 +18,9 @@ int main() {
 	System::Console::SetWindowSize(WIDTH, HEIGHT);
 	System::Console::CursorVisible = false;
 
-	Controladora* juego = new Controladora(WIDTH, HEIGHT, CANTIDAD_ESTRELLAS, CANTIDAD_METEOROS, CANTIDAD_BASURAS);
+	Controladora* juego = new Controladora(WIDTH, HEIGHT, CANTIDAD_ESTRELLAS, CANTIDAD_METEOROS, CANTIDAD_BASURAS, CANTIDAD_ALIENS);
 
-	while (!juego->gameOver()) {
+	while (!(juego->gameOverCase1() || juego->gameOverCase2())) {
 		if (_kbhit()) {
 			tecla = _getch();
 			juego->gestionTecla(toupper(tecla));
@@ -46,7 +47,6 @@ int main() {
 #include "Monigote.h"
 #include <conio.h>
 
-
 int main() {
 	int const WIDTH = 60;
 	int const HEIGHT = 20;
@@ -55,7 +55,6 @@ int main() {
 	System::Console::CursorVisible = false;
 
 	char tecla;
-
 
 	Monigote* objMonigote = new Monigote(WIDTH, HEIGHT);
 
@@ -72,9 +71,7 @@ int main() {
 		objMonigote->imprimir();
 
 		_sleep(150);
-
 	}
-
 	system("pause>0");
 	return 0;
 }*/
