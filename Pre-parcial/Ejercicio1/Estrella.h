@@ -7,8 +7,6 @@ private:
 	int color;
 public:
 	Estrella(int width, int height) : Entidad(x, y, dx, dy, w, h) {
-		System::Random numero_aleatorio;
-
 		this->x = y = 0;
 
 		this->w = h = 1;
