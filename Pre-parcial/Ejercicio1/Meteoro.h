@@ -9,8 +9,6 @@ private:
 	int height;
 public:
 	Meteotoro(int width, int height) : Entidad(x, y, dx, dy, w, h) {
-		System::Random numero_aleatorio;
-
 		this->width = width;
 		this->height = height;
 
