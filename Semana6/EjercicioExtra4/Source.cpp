@@ -74,3 +74,4 @@ void dibuja() {
 			if (mov[f][c] == 1) cout << (char)219;
 			else cout << (char)32;
 		}
+}
