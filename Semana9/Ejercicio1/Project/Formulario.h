@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Project {
+namespace Project3 {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -12,10 +12,10 @@ namespace Project {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	public ref class Formulario : public System::Windows::Forms::Form
+	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
-		Formulario(void)
+		Form1(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace Project {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~Formulario()
+		~Form1()
 		{
 			if (components)
 			{
