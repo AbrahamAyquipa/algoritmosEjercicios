@@ -1,7 +1,7 @@
-#include "Form1.h"
+#include "Formulario.h"
+using namespace Project;
 
-using namespace Project3;
 int main() {
-	Application::Run(gcnew Form1());
+	Application::Run(gcnew Formulario);
 	return 0;
 }
