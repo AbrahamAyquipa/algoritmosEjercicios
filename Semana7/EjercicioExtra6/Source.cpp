@@ -5,11 +5,11 @@ using namespace std;
 using namespace System;
 
 //= Las preguntas se elegiran aleatoriamente desde su indice
-string preguntas[6] = { "LIBRE MERCADO?","LIBRE COMERCIO?","IGUALDAD?",
-						"MENTALIDAD ABIERTA?","SENSIBILIDAD?","ESTADO CON VALORES?" };
+string preguntas[6] = { "LIBRE MERCADO?","LIBRE COMERCIO?","IGUALDAD?", "MENTALIDAD ABIERTA?","SENSIBILIDAD?","ESTADO CON VALORES?" };
 
-//= short es lo mismo que un int, pero ocupa menos espacio de memoria
-//= lo uso porque estoy trabajando con valores pequeños (1,2,3...)
+//short es lo mismo que un int, pero ocupa menos espacio de memoria
+//lo uso porque estoy trabajando con valores pequeños (1,2,3...)
+
 short menu() {
 	short opcion;
 	Console::ForegroundColor = ConsoleColor::Yellow;
