@@ -1,3 +1,17 @@
+
+<br />
+<div align="center">
+  <a href="https://github.com/AbrahamAyquipa/AlgoritmosEjercicios">
+    <img src="./logo.png">
+  </a>
+
+  <h1 align="center">UPC Algorithms Course</h1>
+
+  <p align="center">
+    Solutions of OOP exercises.
+  </p>
+</div>
+
 # Ejercicios de clase - Algoritmos 
 
 En el siguiente repositorio se guardaran los ejercicios hechos en clase
