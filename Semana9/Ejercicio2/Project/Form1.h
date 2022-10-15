@@ -45,16 +45,6 @@ namespace Project {
 
 
 
-
-
-
-
-
-
-	protected:
-
-	protected:
-
 	protected:
 
 	private:
