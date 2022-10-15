@@ -17,7 +17,6 @@ public:
 
 	void reporte() {
 		for (Inclinacion* i : arr) {
-
 			switch (i->getID()) {
 			case 1: dc++; break;
 			case 2: ic++; break;
