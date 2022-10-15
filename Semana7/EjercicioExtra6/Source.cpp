@@ -26,6 +26,7 @@ short menu() {
 	} while (opcion > 3 || opcion < 1);
 	return opcion;
 }
+
 int main() {
 	srand(time(NULL));
 	short op;
