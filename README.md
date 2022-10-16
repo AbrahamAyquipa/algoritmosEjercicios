@@ -1,7 +1,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/AbrahamAyquipa/AlgoritmosEjercicios">
+  <a href="https://github.com/AbrahamAyquipa/algoritmosEjercicios">
     <img src="./logo.png" height = "120", width = "100">
   </a>
 
@@ -12,9 +12,18 @@
   </p>
 </div>
 
-## Lenguajes usados
+## Language used
 
 C++
+
+## Getting Started
+
+You have two options:
+* Clone the repo.
+  ```sh
+  git clone https://github.com/AbrahamAyquipa/algoritmosEjercicios.git
+  ```
+* Download it manually. **Code** > **Download ZIP**
 
 ## Content
 
