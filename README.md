@@ -5,10 +5,10 @@
     <img src="./logo.png" height = "120", width = "100">
   </a>
 
-  <h1 align="center">UPC Algorithms Course</h1>
+  <h1 align="center">Ejercicios de clase - Algoritmos</h1>
 
   <p align="center">
-    Solutions of OOP exercises.
+    En el siguiente repositorio se guardaran los ejercicios hechos en clase.
   </p>
 </div>
 
