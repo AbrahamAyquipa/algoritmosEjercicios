@@ -12,10 +12,6 @@
   </p>
 </div>
 
-# Ejercicios de clase - Algoritmos 
-
-En el siguiente repositorio se guardaran los ejercicios hechos en clase
-
 ## Lenguajes usados
 
 C++
