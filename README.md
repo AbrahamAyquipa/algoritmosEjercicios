@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/AbrahamAyquipa/AlgoritmosEjercicios">
-    <img src="./logo.png" height = "60", width = "50">
+    <img src="./logo.png" height = "120", width = "100">
   </a>
 
   <h1 align="center">UPC Algorithms Course</h1>
