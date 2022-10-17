@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/AbrahamAyquipa/algoritmosEjercicios">
-    <img src="./logo.png" height = "120", width = "100">
+    <img src="./logo.png" height = "120", width = "105">
   </a>
 
   <h1 align="center">Ejercicios de clase - Algoritmos</h1>
