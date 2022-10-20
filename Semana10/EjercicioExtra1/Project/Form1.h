@@ -37,11 +37,14 @@ namespace Project {
 		}
 
 	private:
-		Graphics^ Panel;
+		
+	Graphics^ Panel;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Timer^ timer1;
+
 	private: System::ComponentModel::IContainer^ components;
-		   /// <summary>
+		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 
@@ -71,6 +74,7 @@ namespace Project {
 			// timer1
 			// 
 			this->timer1->Enabled = true;
+			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
 			// 
 			// Form1
@@ -122,6 +126,7 @@ namespace Project {
 
 		Pen^ Lapiz2 = gcnew Pen(Color::Blue, 3);
 		Panel->DrawRectangle(Lapiz2, 50, 50, 200, 150);
+
 		/* 3. realizar un rectangulo en cada esquina de la ventana */
 		int X = 50;
 		int Y = 50;
@@ -130,6 +135,7 @@ namespace Project {
 
 		SolidBrush^ Brocha1 = gcnew SolidBrush(Color::Aquamarine);
 		Panel->FillRectangle(Brocha1, 52, 52, 197, 147);
+
 		/*4  serie de rectangulos*/
 		for (int i = 1; i <= 10; i++) {
 			Panel->DrawRectangle(Lapiz2, X, Y, Ancho, Alto);
@@ -172,17 +178,19 @@ namespace Project {
 		Panel->DrawArc(Lapiz3,X, Y, Ancho, Alto, 180, 180.0);
 
 		/*7  serie de arcos*/
-		for (int i = 1; i <= 10; i++)
-		{
-			Panel->DrawArc(Lapiz3, X, Y, Ancho, Alto, 180, 180.0);
+		for (int i = 1; i <= 10; i++) {
+			Pen^ Lapiz4;
+			if (i % 2 != 0) Lapiz4 = gcnew Pen(Color::Yellow, 5);
+			else Lapiz4 = gcnew Pen(Color::Green, 5);
+			Panel->DrawArc(Lapiz4, X, Y, Ancho, Alto, 180, 180.0);
 			X += 10;
 			Y += 10;
 			Ancho += 10;
 			Alto += 10;
 		}
-
 		Panel->DrawEllipse(Lapiz3, X, Y, Ancho, Alto);
-		/*7  serie de elipses*/
+
+		/*8  serie de elipses*/
 		for (int i = 1; i <= 10; i++){
 			Panel->DrawEllipse(Lapiz3, X, Y, Ancho, Alto);
 			X += 10;
@@ -191,15 +199,16 @@ namespace Project {
 			Alto += 10;
 		}
 
-		/* iamgenes*/
+		/*9. imagenes*/
 		X = 250;
 		Y = 50;
 		Ancho = 300;
 		Alto = 200;
+		//Image^ UnaFotito = Image::FromFile("Perrito.jpg");
 		Image^ UnaFotito = Image::FromFile("C:\\Users\\Abraham\\Downloads\\632051.png");
 		Panel->DrawImage(UnaFotito, X, Y, Ancho, Alto);
 
-		/* CADENAS EN GRAFICO */
+		/*10. Letrero*/
 		String^ Cadena = "Universidad";
 		System::Drawing::Font^ TipoLetra = gcnew System::Drawing::Font("Arial", 16);
 		SolidBrush^ Pincel1 = gcnew SolidBrush(Color::Red);
@@ -207,6 +216,7 @@ namespace Project {
 		Panel->DrawString(Cadena, TipoLetra, Pincel1, Punto3);
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+		/* Usar enable para activar el evento*/
 		MessageBox::Show("I'm a virus", "Troyano", MessageBoxButtons::YesNoCancel);
 	}
 };
