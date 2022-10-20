@@ -85,6 +85,7 @@ namespace Project {
 		carrera->mostrar(g);
 		if (carrera->getRound() == 10) {
 			clock->Enabled = false;
+			//(gcnew Rank(carrera))->ShowDialog();
 		}
 	}
 	private: System::Void MyForm_Load_1(System::Object^ sender, System::EventArgs^ e) {
