@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Figura.h"
 
 class Circulo : public Figura {
