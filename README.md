@@ -4,10 +4,10 @@
     <img src="./logo.png" height = "120", width = "105">
   </a>
 
-  <h1 align="center">Ejercicios de clase - Algoritmos</h1>
+  <h1 align="center">Classroom Exercises - Algorithms</h1>
 
   <p align="center">
-    En el siguiente repositorio se guardaran los ejercicios hechos en clase.
+    The following repository will store the exercises done in class.
   </p>
 </div>
 
