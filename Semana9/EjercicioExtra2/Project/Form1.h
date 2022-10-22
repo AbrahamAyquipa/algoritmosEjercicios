@@ -122,7 +122,6 @@ namespace Project {
 		private: System::Void BtnPreguntar_Click(System::Object^ sender, System::EventArgs^ e) {
 			Form2^ FormularioVotacion = gcnew Form2();
 			FormularioVotacion->MuestraNombre(TxtNombre->Text);
-      
 			//Show SI permite retroceder
 			//ShowDialog NO permite retroceder
 			FormularioVotacion->ShowDialog();
