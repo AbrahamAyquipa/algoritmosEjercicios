@@ -47,6 +47,9 @@ namespace Project {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -74,6 +77,9 @@ namespace Project {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -115,7 +121,7 @@ namespace Project {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Karmatic Arcade", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(77, 26);
+			this->label4->Location = System::Drawing::Point(193, 9);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(37, 30);
 			this->label4->TabIndex = 2;
@@ -127,11 +133,11 @@ namespace Project {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"ArcadeClassic", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(124, 94);
+			this->label5->Location = System::Drawing::Point(169, 12);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(27, 27);
+			this->label5->Size = System::Drawing::Size(18, 27);
 			this->label5->TabIndex = 2;
-			this->label5->Text = L"1";
+			this->label5->Text = L":";
 			// 
 			// timer1
 			// 
@@ -148,6 +154,41 @@ namespace Project {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Form3::button2_Click);
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Karmatic Arcade", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(159, 9);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(0, 30);
+			this->label6->TabIndex = 2;
+			this->label6->Click += gcnew System::EventHandler(this, &Form3::label4_Click);
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Karmatic Arcade", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(159, 9);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(21, 30);
+			this->label7->TabIndex = 2;
+			this->label7->Text = L":";
+			this->label7->Click += gcnew System::EventHandler(this, &Form3::label4_Click);
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Karmatic Arcade", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(101, 12);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(37, 30);
+			this->label8->TabIndex = 2;
+			this->label8->Text = L"0";
+			this->label8->Click += gcnew System::EventHandler(this, &Form3::label4_Click);
+			// 
 			// Form3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -155,6 +196,9 @@ namespace Project {
 			this->ClientSize = System::Drawing::Size(284, 261);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label2);
@@ -183,11 +227,17 @@ namespace Project {
 		//cronometro->Start();
 		//timer1->Enabled = true;
 	}
-private: System::Void timer1_Tick_1(System::Object^ sender, System::EventArgs^ e) {
-	TimeSpan^ duraccion = gcnew TimeSpan(0, 0, 0, 0, (int)cronometro->ElapsedMilliseconds);
-	label4->Text = duraccion->Seconds.ToString();
-	cronometro->Start();
-	timer1->Enabled = true;
-}
+	private: System::Void timer1_Tick_1(System::Object^ sender, System::EventArgs^ e) {
+		TimeSpan^ duraccion = gcnew TimeSpan(0, 0, 0, 0, (int)cronometro->ElapsedMilliseconds);
+
+		if (duraccion->Minutes < 10) label8->Text = ("0") + duraccion->Minutes.ToString();
+		if (duraccion->Minutes >= 10) label8->Text = duraccion->Minutes.ToString();
+
+		if(duraccion->Seconds < 10) label4->Text = ("0") + duraccion->Seconds.ToString();
+		if(duraccion->Seconds >= 10) label4->Text = duraccion->Seconds.ToString();
+
+		cronometro->Start();
+		timer1->Enabled = true;
+	}
 };
 }
