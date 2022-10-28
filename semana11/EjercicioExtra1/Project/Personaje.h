@@ -1,6 +1,8 @@
 #pragma once
 #include "String.h";
-enum Direccion{Arriba,Abajo,Izquierda,Derecha,Ninguno};
+
+//enum: hace referencia a un listado de constantes
+enum Direccion { Arriba, Abajo, Izquierda, Derecha, Ninguno };
 using namespace System::Drawing;
 
 class Personaje {
@@ -10,7 +12,6 @@ private:
 	char* imagen;//para el nombre del archivo imagen
 	int W, H; //dimensiones de la imagen
 	int indiceH, indiceW;
-
 public:
 	Personaje();
 	~Personaje();
@@ -29,6 +30,7 @@ public:
 	//para la animacion
 	void mostrar(Graphics^ canvas);
 	void mover(Graphics^ canvas, Direccion teclapulsada);
+
 };
 
 //IMPLEMENTACION
@@ -41,10 +43,10 @@ Personaje::Personaje() {
 
 void Personaje::cambiar_dx_dy(Direccion teclapulsada) {
 	switch (teclapulsada) {
-		case Arriba: dx = 0; dy = -5; break;
-		case Abajo: dx = 0; dy = 5; break;
-		case Izquierda: dx = -5; dy = 0; break;
-		case Derecha: dx = 5; dy = 0; break;
+	case Arriba: dx = 0; dy = -5; break;
+	case Abajo: dx = 0; dy = 5; break;
+	case Izquierda: dx = -5; dy = 0; break;
+	case Derecha: dx = 5; dy = 0; break;
 	}
 }
 
@@ -60,24 +62,22 @@ void Personaje::cambiar_imagen(char* valor) {
 	W = bitmap->Width / 4;
 	H = bitmap->Height / 4;
 
-	delete bitmap;	
+	delete bitmap;
 }
 
 void Personaje::mostrar(Graphics^ canvas) {
 	//vuelvo a cargar la imagen completa... el sprite completo
 	Bitmap^ bitmap = gcnew Bitmap(gcnew System::String(imagen));
 
-
 	//se obtiene un recuadro o porcion del sprite
-	Rectangle cuadro = Rectangle(indiceW*W,indiceH*H, W    ,  H	     );
-								//X,        Y,       ancho, alto	
+	Rectangle cuadro = Rectangle(indiceW * W, indiceH * H, W, H);
+
 	//para hacer zoom
 	Rectangle zoom = Rectangle(X, Y, W * 2, H * 2);
 
 	//dibujar cuadro en el canvas del formulario
 	canvas->DrawImage(bitmap, zoom, cuadro, GraphicsUnit::Pixel);
 }
-
 
 void Personaje::mover(Graphics^ canvas, Direccion teclapulsada) {
 	if (teclapulsada == Direccion::Abajo) indiceH = 0;
@@ -88,15 +88,15 @@ void Personaje::mover(Graphics^ canvas, Direccion teclapulsada) {
 	indiceW++;
 	if (indiceW > 3) indiceW = 0;
 
-	X = X + dx;
-	Y = Y + dy;
+	X += dx;
+	Y += dy;
 
 	mostrar(canvas);
 }
 
-int Personaje::retornarX(){ return this->X; }
+int Personaje::retornarX() { return this->X; }
 int Personaje::retornarY() { return this->Y; }
-int Personaje::retornar_dx() { return this->dx; }
+int Personaje::retornar_dx() {return this->dx; }
 int Personaje::retornar_dy() { return this->dy; }
 int Personaje::retornarW() { return this->W; }
 int Personaje::retornarH() { return this->H; }
