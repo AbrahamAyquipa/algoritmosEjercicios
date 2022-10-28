@@ -26,7 +26,7 @@ namespace Project {
 			teclapulsada = Direccion::Ninguno;
 			objPersonaje->cambiarX(120);
 			objPersonaje->cambiarY(150);
-			objPersonaje->cambiar_imagen("images/personaje.png");
+			objPersonaje->cambiar_imagen("Images/personaje.png");
 		}
 
 	protected:
