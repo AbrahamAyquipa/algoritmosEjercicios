@@ -1,6 +1,7 @@
 #pragma once
 #include "Personaje.h"
-namespace EjemploAnimacionSprite {
+
+namespace Project {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -12,10 +13,10 @@ namespace EjemploAnimacionSprite {
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		Form1(void)
 		{
 			InitializeComponent();
 			//
@@ -26,14 +27,13 @@ namespace EjemploAnimacionSprite {
 			objPersonaje->cambiarX(120);
 			objPersonaje->cambiarY(150);
 			objPersonaje->cambiar_imagen("images/personaje.png");
-
 		}
 
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~MyForm()
+		~Form1()
 		{
 			if (components)
 			{
@@ -48,10 +48,10 @@ namespace EjemploAnimacionSprite {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
+
 		Graphics^ canvas;
 		Personaje* objPersonaje;
 		Direccion teclapulsada;
-
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -67,7 +67,7 @@ namespace EjemploAnimacionSprite {
 			// timer1
 			// 
 			this->timer1->Enabled = true;
-			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
+			this->timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
 			// 
 			// MyForm
 			// 
@@ -76,24 +76,21 @@ namespace EjemploAnimacionSprite {
 			this->ClientSize = System::Drawing::Size(914, 504);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Form1::MyForm_KeyDown);
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 	private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	
 		teclapulsada = Direccion::Ninguno;
 		if (e->KeyCode == Keys::Up) teclapulsada = Direccion::Arriba;
 		if (e->KeyCode == Keys::Down) teclapulsada = Direccion::Abajo;
 		if (e->KeyCode == Keys::Right) teclapulsada = Direccion::Derecha;
 		if (e->KeyCode == Keys::Left) teclapulsada = Direccion::Izquierda;
-
-
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		//canvas del formulario		
 		canvas = this->CreateGraphics();
+
 		//se reserva un espacio para el buffer
 		BufferedGraphicsContext^ espacio_buffer = BufferedGraphicsManager::Current;
 
@@ -108,20 +105,17 @@ namespace EjemploAnimacionSprite {
 		objPersonaje->mover(buffer->Graphics, teclapulsada);
 
 		//LIMITES
-
 		if (objPersonaje->retornarX() + objPersonaje->retornarW() + objPersonaje->retornar_dx() > canvas->VisibleClipBounds.Width)
 			teclapulsada = Direccion::Izquierda;
 
-		if ( objPersonaje->retornarX() + objPersonaje->retornar_dx() < 1)
+		if (objPersonaje->retornarX() + objPersonaje->retornar_dx() < 1)
 			teclapulsada = Direccion::Derecha;
-		//-------
 
 		buffer->Render(canvas);//dibuja en el canvas del formulario
 
 		delete buffer;
 		delete espacio_buffer;
 		delete canvas;
-
 	}
-};
+	};
 }
