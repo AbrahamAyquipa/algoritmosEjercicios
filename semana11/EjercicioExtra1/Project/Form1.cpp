@@ -1,9 +1,7 @@
-#include "MyForm.h"
-using namespace System;
-using namespace System::Windows::Forms;
+#include "Form1.h"
+using namespace Project;
 
-void main() {
-	Application::EnableVisualStyles();
-	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew EjemploAnimacionSprite::MyForm());
+int main() {
+	Application::Run(gcnew Form1());
+	return 0;
 }
