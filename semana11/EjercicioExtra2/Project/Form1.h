@@ -106,7 +106,7 @@ namespace Project {
 		enemyH->move(buffer->Graphics);
 		enemyV->move(buffer->Graphics);
 		//Draw
-															//dimensiones del fondo
+		//dimensiones del fondo
 		buffer->Graphics->DrawImage(bmpMap, 0, 0, bmpMap->Width * 2, bmpMap->Height * 2.2);
 		hero->draw(buffer->Graphics, bmpHero);
 		enemyH->draw(buffer->Graphics, bmpEnemy);
