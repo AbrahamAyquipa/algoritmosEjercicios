@@ -8,7 +8,6 @@ private:
 	int idX, idY; // index
 	int width, height;
 	int direction;
-
 public:
 	Enemy(int width, int height, int direction) {
 		this->direction = direction;
