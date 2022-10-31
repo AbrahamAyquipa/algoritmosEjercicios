@@ -3,7 +3,7 @@
 using namespace System::Drawing;
 
 class Enemy {
-private:
+private: 
 	int x, y;
 	int dx, dy;
 	int idX, idY;
@@ -18,7 +18,7 @@ public:
 		dx = dy = 20;
 		x = rand() % 900;
 		y = rand() % 200;
-		idX = idY = 0;
+		idX= idY = 0;
 		visibility = true;
 	}
 
@@ -26,11 +26,12 @@ public:
 
 	void draw(Graphics^ g, Bitmap^ bmp) {
 		Rectangle sectionShow = Rectangle(idX * width, idY * height, width, height);
-		Rectangle zoom = Rectangle(x, y, width, height);
+		Rectangle zoom = Rectangle(x, y, width , height );
 		g->DrawImage(bmp, zoom, sectionShow, GraphicsUnit::Pixel);
 	}
 
 	void move(Graphics^ g) {
+		//horizontal
 		if (direccion == 1) { // los enemigos se mueven de izquierda a derecha
 			if (x + width * 1.0 > g->VisibleClipBounds.Width || x < 0) dx *= -1;
 			if (dx > 0) { //dx=20
@@ -40,9 +41,9 @@ public:
 				idY = 1;
 			x += dx;
 		}
+		//vertical
 		else {
-			if (y + height * 1.0 > g->VisibleClipBounds.Height || y < 0) dy *= -1;
-
+			if(y + height * 1.0 > g->VisibleClipBounds.Height || y < 0) dy *= -1;
 			if (dy > 0) {
 				idY = 0;
 			}
@@ -52,7 +53,7 @@ public:
 
 		}
 		idX++;
-		if (idX > 3)
+		if(idX > 3) 
 			idX = 0;
 	}
 
