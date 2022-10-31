@@ -1,5 +1,6 @@
 #pragma once
 using namespace System::Drawing;
+
 class Hero {
 private:
 	int x, y; // ubicacion
@@ -8,7 +9,7 @@ private:
 	int width, height;
 	char direction;
 public:
-	Hero(int w, int h) {
+	Hero(int w,int h){
 		width = w;
 		height = h;
 		dx = dy = 15;
@@ -34,7 +35,7 @@ public:
 			}
 			break;
 		case 'D':
-			if (x + width * 1.0 < g->VisibleClipBounds.Width) {
+			if (x + width*1.0 < g->VisibleClipBounds.Width) {
 				idY = 2;
 				x += dx;
 				direction = 'D';
@@ -48,7 +49,7 @@ public:
 			}
 			break;
 		case 'S':
-			if (y + height * 1.0 < g->VisibleClipBounds.Height) {
+			if (y + height*1.0 < g->VisibleClipBounds.Height) {
 				idY = 0;
 				y += dy;
 				direction = 'S';
