@@ -9,7 +9,6 @@ private:
 	int width, height;
 	char direction;
 	bool visibility;
-
 public:
 	Bullet(int x, int y, int w, int h, char d) {
 		width = w;
