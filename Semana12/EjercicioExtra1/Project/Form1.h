@@ -24,14 +24,18 @@ namespace Project {
 			srand(time(NULL));
 			g = pnlCanvas->CreateGraphics();
 			space = BufferedGraphicsManager::Current;
+
 			buffer = space->Allocate(g, pnlCanvas->ClientRectangle);
-			bmpHero = gcnew Bitmap("Images/rojo.png");
-			bmpEnemy = gcnew Bitmap("Images/bruno.png");
-			bmpMap = gcnew Bitmap("Images/fondo.png");
-			bmpBullet = gcnew Bitmap("Images/pokeball.png");
+			bmpHero = gcnew Bitmap("Images\\rojo.png");
+			bmpEnemy = gcnew Bitmap("Images\\bruno.png");
+			bmpMap = gcnew Bitmap("Images\\fondo.png");
+			bmpBullet = gcnew Bitmap("Images\\pokeball.png");
+			bmpBala = gcnew Bitmap("Images\\rojo.png");
+
 			hero = new Hero(bmpHero->Width / 4, bmpHero->Height / 4);
 			controller = new Controller();
 			controller->createEnemies(bmpEnemy->Width / 4, bmpEnemy->Height / 4);
+			controller->createBala(bmpBala->Width/4, bmpBala->Height/4);
 		}
 	protected:
 		~Form1()
@@ -49,10 +53,13 @@ namespace Project {
 		Graphics^ g;
 		BufferedGraphicsContext^ space;
 		BufferedGraphics^ buffer;
+
 		Bitmap^ bmpHero;
 		Bitmap^ bmpEnemy;
 		Bitmap^ bmpMap;
 		Bitmap^ bmpBullet;
+		Bitmap^ bmpBala;
+
 		Hero* hero;
 		Controller* controller;
 #pragma region Windows Form Designer generated code
@@ -96,11 +103,12 @@ namespace Project {
 		buffer->Graphics->Clear(Color::WhiteSmoke);
 		//collision
 		controller->collision(buffer->Graphics);
+		controller->eliminarBala(buffer->Graphics);
 		//move para el personaje se hara con teclas
 		controller->moveEveryThing(buffer->Graphics);
 		//draw
 		buffer->Graphics->DrawImage(bmpMap, 0, 0, bmpMap->Width * 2.2, bmpMap->Height * 1.8);
-		controller->drawEveryThing(buffer->Graphics, bmpEnemy, bmpBullet);
+		controller->drawEveryThing(buffer->Graphics, bmpEnemy, bmpBullet, bmpBala);
 		hero->draw(buffer->Graphics, bmpHero);
 		//Render
 		buffer->Render(g);
@@ -108,14 +116,10 @@ namespace Project {
 
 	private: System::Void presionar(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		switch (e->KeyCode) {
-		case Keys::A:
-			hero->move(buffer->Graphics, 'A'); break;
-		case Keys::D:
-			hero->move(buffer->Graphics, 'D'); break;
-		case Keys::S:
-			hero->move(buffer->Graphics, 'S'); break;
-		case Keys::W:
-			hero->move(buffer->Graphics, 'W'); break;
+		case Keys::A: hero->move(buffer->Graphics, 'A'); break;
+		case Keys::D: hero->move(buffer->Graphics, 'D'); break;
+		case Keys::S: hero->move(buffer->Graphics, 'S'); break;
+		case Keys::W: hero->move(buffer->Graphics, 'W'); break;
 		case Keys::Space:
 			Bullet* b = new Bullet(hero->getX(), hero->getY(), bmpBullet->Width, bmpBullet->Height, hero->getDirection());
 			controller->addBullet(b);
