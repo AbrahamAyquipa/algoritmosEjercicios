@@ -25,7 +25,7 @@ namespace Files {
 			g = this->CreateGraphics();
 			space = BufferedGraphicsManager::Current;
 			buffer = space->Allocate(g, this->ClientRectangle);
-			bmpEnemy = gcnew Bitmap("proton.png");
+			bmpEnemy = gcnew Bitmap("Images/proton.png");
 			controller = new Controller();
 			file = new File();
 			file->readData();
