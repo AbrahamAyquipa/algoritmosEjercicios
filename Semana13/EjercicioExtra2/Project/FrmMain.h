@@ -24,9 +24,9 @@ namespace CarEnemy {
 			g = panel1->CreateGraphics();
 			space = BufferedGraphicsManager::Current;
 			buffer = space->Allocate(g, panel1->ClientRectangle);
-			bmpCar = gcnew Bitmap("rojo.png");
-			bmpEnemy = gcnew Bitmap("proton.png");
-			bmpMap = gcnew Bitmap("fondo.png");
+			bmpCar = gcnew Bitmap("Images/rojo.png");
+			bmpEnemy = gcnew Bitmap("Images/proton.png");
+			bmpMap = gcnew Bitmap("Images/fondo.png");
 			controller = new Controller(bmpCar, bmpEnemy);
 		}
 
